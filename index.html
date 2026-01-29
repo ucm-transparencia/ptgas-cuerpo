@@ -24,8 +24,8 @@
 </div>
 <label style="display:block;font-weight:600;color:#333;margin-bottom:6px;font-size:12px">OPCIONES</label>
 <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
-<button onclick="toggleGender('hombre')" id="btnHombre" style="padding:6px 12px;background:#4a90e220;border:2px solid #4a90e2;color:#333;border-radius:4px;cursor:pointer;font-size:11px;font-weight:500">👨 Hombres</button>
-<button onclick="toggleGender('mujer')" id="btnMujer" style="padding:6px 12px;background:#e91e6320;border:2px solid #e91e63;color:#333;border-radius:4px;cursor:pointer;font-size:11px;font-weight:500">👩 Mujeres</button>
+<button onclick="toggleGender('hombre')" id="btnHombre" style="padding:6px 12px;background:#28a74520;border:2px solid #28a745;color:#333;border-radius:4px;cursor:pointer;font-size:11px;font-weight:500">👨 Hombres</button>
+<button onclick="toggleGender('mujer')" id="btnMujer" style="padding:6px 12px;background:#fd7e1420;border:2px solid #fd7e14;color:#333;border-radius:4px;cursor:pointer;font-size:11px;font-weight:500">👩 Mujeres</button>
 </div>
 <label style="display:block;font-weight:600;color:#333;margin-bottom:6px;font-size:12px">FILTRAR POR TIPO</label>
 <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px">
@@ -106,8 +106,8 @@ if(showHombre){
 datasets.push({
 label:'Hombres',
 data:data.map(d=>d.h),
-backgroundColor:'#4a90e2',
-borderColor:'#4a90e2',
+backgroundColor:'#28a745',
+borderColor:'#28a745',
 borderWidth:1
 });
 }
@@ -116,8 +116,8 @@ if(showMujer){
 datasets.push({
 label:'Mujeres',
 data:data.map(d=>d.m),
-backgroundColor:'#e91e63',
-borderColor:'#e91e63',
+backgroundColor:'#fd7e14',
+borderColor:'#fd7e14',
 borderWidth:1
 });
 }
@@ -228,15 +228,15 @@ function updateTable(){
 let data=getFilteredData();
 let h='<table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:linear-gradient(135deg,#979492,#6b6967);color:white">';
 h+='<th style="padding:8px;text-align:left;font-weight:600;font-size:11px">Subgrupo/Nivel</th>';
-if(showHombre)h+='<th style="padding:8px;text-align:right;font-weight:600;font-size:11px;background:rgba(74,144,226,0.3)">Hombres</th>';
-if(showMujer)h+='<th style="padding:8px;text-align:right;font-weight:600;font-size:11px;background:rgba(233,30,99,0.3)">Mujeres</th>';
+if(showHombre)h+='<th style="padding:8px;text-align:right;font-weight:600;font-size:11px;background:rgba(40,167,69,0.3)">Hombres</th>';
+if(showMujer)h+='<th style="padding:8px;text-align:right;font-weight:600;font-size:11px;background:rgba(253,126,20,0.3)">Mujeres</th>';
 h+='<th style="padding:8px;text-align:right;background:rgba(0,0,0,0.15);font-weight:600;font-size:11px">TOTAL</th></tr></thead><tbody>';
 
 data.forEach((d,i)=>{
 let bg=i%2?'white':'#fafafa';
 h+='<tr style="background:'+bg+';transition:background 0.2s" onmouseover="this.style.background=\'#f5f5f5\'" onmouseout="this.style.background=\''+bg+'\'"><td style="padding:7px;font-weight:500;color:#6b6967;font-size:11px">'+d.cat+'</td>';
-if(showHombre)h+='<td style="padding:7px;text-align:right;color:#4a90e2;font-weight:500">'+d.h.toLocaleString('es-ES')+'</td>';
-if(showMujer)h+='<td style="padding:7px;text-align:right;color:#e91e63;font-weight:500">'+d.m.toLocaleString('es-ES')+'</td>';
+if(showHombre)h+='<td style="padding:7px;text-align:right;color:#28a745;font-weight:500">'+d.h.toLocaleString('es-ES')+'</td>';
+if(showMujer)h+='<td style="padding:7px;text-align:right;color:#fd7e14;font-weight:500">'+d.m.toLocaleString('es-ES')+'</td>';
 h+='<td style="padding:7px;text-align:right;font-weight:700;background:rgba(151,148,146,0.08);color:#6b6967">'+d.t.toLocaleString('es-ES')+'</td></tr>';
 });
 
@@ -245,8 +245,8 @@ let totalM=data.reduce((sum,d)=>sum+d.m,0);
 let totalT=data.reduce((sum,d)=>sum+d.t,0);
 
 h+='<tr style="background:#e8e8e8;font-weight:700"><td style="padding:10px;color:#6b6967;font-size:12px">TOTAL</td>';
-if(showHombre)h+='<td style="padding:10px;text-align:right;color:#4a90e2;font-size:12px">'+totalH.toLocaleString('es-ES')+'</td>';
-if(showMujer)h+='<td style="padding:10px;text-align:right;color:#e91e63;font-size:12px">'+totalM.toLocaleString('es-ES')+'</td>';
+if(showHombre)h+='<td style="padding:10px;text-align:right;color:#28a745;font-size:12px">'+totalH.toLocaleString('es-ES')+'</td>';
+if(showMujer)h+='<td style="padding:10px;text-align:right;color:#fd7e14;font-size:12px">'+totalM.toLocaleString('es-ES')+'</td>';
 h+='<td style="padding:10px;text-align:right;background:rgba(151,148,146,0.15);color:#6b6967;font-size:12px">'+totalT.toLocaleString('es-ES')+'</td></tr>';
 
 h+='</tbody></table>';
