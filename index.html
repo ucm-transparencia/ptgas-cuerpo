@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAS por Subgrupo/Nivel</title>
+    <title>PTGAS por Subgrupo/Nivel</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 </head>
 <body style="margin:0;padding:15px;font-family:Arial,sans-serif;background:#f5f5f5">
 <div style="max-width:1200px;margin:0 auto;background:white;border-radius:8px;padding:20px;box-shadow:0 2px 15px rgba(0,0,0,0.08)">
 
 <div style="background:linear-gradient(135deg,#979492 0%,#6b6967 100%);padding:15px 20px;border-radius:6px;margin:-20px -20px 15px -20px;color:white">
-<h1 style="margin:0 0 4px 0;font-size:22px;font-weight:600">PAS por Subgrupo/Nivel</h1>
-<p style="margin:0;font-size:12px;opacity:0.9">Universidad Complutense de Madrid</p>
+<h1 style="margin:0 0 4px 0;font-size:22px;font-weight:600">PTGAS por Subgrupo/Nivel</h1>
+<p style="margin:0;font-size:12px;opacity:0.9">Universidad Complutense de Madrid · Datos actualizados trimestralmente</p>
 </div>
 
 <div style="background:#f8f9fa;border-radius:6px;padding:12px;margin-bottom:15px;border-left:3px solid #979492">
@@ -52,7 +52,7 @@
 <div id="table"></div>
 </div>
 
-<p style="text-align:center;color:#979492;font-size:11px;margin-top:12px">Portal de Transparencia UCM · Datos actualizados: Enero 2026</p>
+<p style="text-align:center;color:#979492;font-size:11px;margin-top:12px">Portal de Transparencia UCM · Fuente: SIDI (Sistema Integrado de Datos Institucionales) · Datos a fecha: 01/04/2026 · Extraídos el 07/04/2026</p>
 
 </div>
 
@@ -60,31 +60,30 @@
 let c,chartType='bar',sortOrder='alfabetico',filterType='todos';
 let showHombre=true,showMujer=true;
 let originalData=[
-{cat:'A1 Eventual',h:0,m:3,t:3,tipo:'eventual'},
+{cat:'A1 Eventual',h:0,m:2,t:2,tipo:'eventual'},
 {cat:'A2 Eventual',h:1,m:0,t:1,tipo:'eventual'},
-{cat:'A2 Funcionario Interino',h:0,m:1,t:1,tipo:'interino'},
-{cat:'C1 Funcionario Interino',h:26,m:64,t:90,tipo:'interino'},
-{cat:'C2 Funcionario Interino',h:20,m:85,t:105,tipo:'interino'},
+{cat:'C1 Funcionario Interino',h:27,m:64,t:91,tipo:'interino'},
+{cat:'C2 Funcionario Interino',h:23,m:91,t:114,tipo:'interino'},
 {cat:'A1 Funcionario de Carrera',h:45,m:64,t:109,tipo:'carrera'},
-{cat:'A2 Funcionario de Carrera',h:69,m:155,t:224,tipo:'carrera'},
-{cat:'C1 Funcionario de Carrera',h:200,m:554,t:754,tipo:'carrera'},
-{cat:'C2 Funcionario de Carrera',h:82,m:295,t:377,tipo:'carrera'},
-{cat:'A1 Laboral Fijo',h:46,m:41,t:87,tipo:'fijo'},
+{cat:'A2 Funcionario de Carrera',h:68,m:155,t:223,tipo:'carrera'},
+{cat:'C1 Funcionario de Carrera',h:199,m:551,t:750,tipo:'carrera'},
+{cat:'C2 Funcionario de Carrera',h:81,m:294,t:375,tipo:'carrera'},
+{cat:'A1 Laboral Fijo',h:46,m:40,t:86,tipo:'fijo'},
 {cat:'A2 Laboral Fijo',h:41,m:41,t:82,tipo:'fijo'},
 {cat:'B1 Laboral Fijo',h:16,m:6,t:22,tipo:'fijo'},
 {cat:'B2 Laboral Fijo',h:25,m:14,t:39,tipo:'fijo'},
-{cat:'C1 Laboral Fijo',h:207,m:86,t:293,tipo:'fijo'},
-{cat:'C2 Laboral Fijo',h:228,m:135,t:363,tipo:'fijo'},
-{cat:'C3 Laboral Fijo',h:175,m:205,t:380,tipo:'fijo'},
+{cat:'C1 Laboral Fijo',h:204,m:86,t:290,tipo:'fijo'},
+{cat:'C2 Laboral Fijo',h:223,m:133,t:356,tipo:'fijo'},
+{cat:'C3 Laboral Fijo',h:173,m:200,t:373,tipo:'fijo'},
 {cat:'D Laboral Fijo',h:9,m:6,t:15,tipo:'fijo'},
 {cat:'A1 Laboral Temporal',h:4,m:9,t:13,tipo:'temporal'},
 {cat:'A2 Laboral Temporal',h:2,m:15,t:17,tipo:'temporal'},
 {cat:'B1 Laboral Temporal',h:1,m:1,t:2,tipo:'temporal'},
 {cat:'B2 Laboral Temporal',h:7,m:8,t:15,tipo:'temporal'},
-{cat:'C1 Laboral Temporal',h:43,m:24,t:67,tipo:'temporal'},
-{cat:'C2 Laboral Temporal',h:70,m:51,t:121,tipo:'temporal'},
-{cat:'C3 Laboral Temporal',h:77,m:73,t:150,tipo:'temporal'},
-{cat:'D Laboral Temporal',h:4,m:5,t:9,tipo:'temporal'}
+{cat:'C1 Laboral Temporal',h:42,m:28,t:70,tipo:'temporal'},
+{cat:'C2 Laboral Temporal',h:70,m:52,t:122,tipo:'temporal'},
+{cat:'C3 Laboral Temporal',h:81,m:77,t:158,tipo:'temporal'},
+{cat:'D Laboral Temporal',h:6,m:6,t:12,tipo:'temporal'}
 ];
 
 function getFilteredData(){
@@ -269,7 +268,7 @@ let blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
 let url=window.URL.createObjectURL(blob);
 let a=document.createElement('a');
 a.href=url;
-a.download='pas_subgrupo_nivel_ucm.csv';
+a.download='ptgas_subgrupo_nivel_ucm.csv';
 a.click();
 }
 
